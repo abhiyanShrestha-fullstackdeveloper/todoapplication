@@ -31,3 +31,8 @@ def edit(request,pk):
         return redirect('home')
     data = {'todo': todo}
     return render(request,'edit.html',context=data)
+
+def delete(request,pk):
+    todo = Todo.objects.get(id=pk)
+    todo.delete()
+    return redirect('home')
